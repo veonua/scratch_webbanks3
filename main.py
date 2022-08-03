@@ -11,7 +11,7 @@ s3 = session.client("s3")
 
 ##############################################################################
 st.title("Upload File to Webbank")
-if st.file_uploader("Upload File", type=["xsls", "xls", "csv"]) is not None:
+if st.file_uploader("Upload File", type=["xlsx", "xls", "csv"]) is not None:
     bytes_data = file.getvalue()
     st.write("Uploading file to S3 ...")
     s3.upload_fileobj(BytesIO(bytes_data), "wb-partner-files", "Scratchpay/"+file.name)
